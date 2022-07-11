@@ -20,8 +20,9 @@ config :logger, level: :info
 # to the previous section and set your `:url` port to 443:
 
 config :exauth, ExauthWeb.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: "tranquil-cliffs-10300.herokuapp.com", port: 443],
+  # http: [port: {:system, "PORT"}],
+  load_from_system_env: true,
+  url: [scheme: "https", host: "exauth.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
@@ -31,7 +32,6 @@ config :exauth, ExauthWeb.Repo,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
-  ...
   #import_config "prod.secret.exs"
 #
     # config :exauth, ExauthWeb.Endpoint,

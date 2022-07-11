@@ -23,7 +23,7 @@ config :exauth, ExauthWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "/93L437CauxZVvfnQIIHIdfFdqnP3yn321ruGkALDpr5lfpYkqGaSHtIkpPues4i",
+  secret_key_base: "8eObm9r7a3OJXgjpzyaPP2cn0O8c8fdxMY4gpqHMz/f32slBOZZOuHCq3J3KwxkI",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
