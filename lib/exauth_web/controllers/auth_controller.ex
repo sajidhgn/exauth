@@ -31,6 +31,20 @@ defmodule ExauthWeb.AuthController do
 
   end
 
+  #  Swagger Registeration
+  swagger_path :register do
+    post("/api/register")
+    summary("Register")
+    description("Signup User")
+    produces("application/json")
+
+    parameters do
+      body(:body, Schema.ref(:SignUp), "Signup Params", required: true)
+    end
+
+    response(200, "Ok")
+  end
+
   # Login Function
 
   @spec login(Plug.Conn.t(), map) :: Plug.Conn.t()
@@ -88,7 +102,25 @@ defmodule ExauthWeb.AuthController do
           username: "sajidhgns",
           password: "1122334455"
         })
-      end
+      end,
+      SignUp:
+      swagger_schema do
+        title("Sign Up User Schema")
+        description("User Sign Up Schema")
+
+        properties do
+          username(:string, "username", required: true)
+          email(:string, "email", required: true)
+          password(:string, "password", required: true)
+        end
+
+        example(%{
+          username: "sajidhgns",
+          email: "sajidhgns23@gmail.com",
+          password: "1122334455"
+        })
+      end,
+
     }
   end
 
