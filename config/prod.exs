@@ -22,7 +22,7 @@ config :logger, level: :info
 config :exauth, ExauthWeb.Endpoint,
   # http: [port: {:system, "PORT"}],
   load_from_system_env: true,
-  url: [scheme: "https", host: "exauth.herokuapp.com", port: 443],
+  url: [scheme: "https", host: "mybranch.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
@@ -30,7 +30,7 @@ config :exauth, ExauthWeb.Endpoint,
 config :exauth, ExauthWeb.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "20"),
   ssl: true
   #import_config "prod.secret.exs"
 #
